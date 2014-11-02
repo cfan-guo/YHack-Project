@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Find, eat, repeat.</title>
+
+        <!--Link to used Google Fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Pacifico' rel='stylesheet' type='text/css' />
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
+        
+        <!--Link to main.css-->
+        <link href="main.css" rel="stylesheet" type="text/css" />
+
+        <!--For responsive design w/ Bootstrap-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Let's use jQuery because otherwise Colin gets a headache -->
+        <!-- On second thought, jQuery will also cause headaches. We're still determining which causes fewer headaches -->
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript" />
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> 
+                
+       <!--JS/JQ Things for Skrollr-->
+    <script type="text/javascript" src="maindisplay/static/js/skrollr.min.js"></script>
+    <script type="text/javascript" src="maindisplay/static/js/skrollr.menu.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    
+    <body>
+        <!--Page One - This is the intro page to explain instructions and things-->
+        <div class = "page-1" id = "Page1">
+            <div class = "container"> 
+                <p><img style="height:auto; width:auto; max-width:60%; max-height:60%;" src = "./Fridge.jpg"></p> 
+                <h1>What's in your fridge?</h1>
+                <p class = "text">Not sure what you can make with the food you have on hand? Leave it to us! Enter what <span style = "font-family:Pacifico; color: #f1c40f">ingredients</span> you have, and we'll find suitable recipes to fit your needs. It's easy to get started, and you get multiple options to choose from! We even provide <span style = "font-family:Pacifico; color: #e67e22">nutrition information</span> to help you make informed decisions.</p>
+                
+                <!--"Try it out" button - will link to next page-->
+                <p><a href = #Page2><button type="button" class="btn btn-default btn-lg page-1">
+                    <span style="font-family: Pacifico; self-align: center">Buon appetito!</span>
+                    </button></a></p>
+    
+            </div>
+        </div>
+            
+        <!--Page Two - This will allow for the user to enter in the ingredients, which are sent into the form thing-->
+        <!--Transitions into second page with one form input-->
+        <div class= "page-2" id = "Page2">
+            <div class="container">
+                <!--Form things - get input, also make label things that get written over when user adds input-->
+                <span style = "margin-top:10%"><p class = "text">Enter all major ingredients. You don't need to include staples such as sugar, salt, spices, oil.</p></span>
+                <form action = "javascript: submitForm();">
+                    <input type="hidden" name="redirect" value="PageThree.html" />
+        
+                    <!--Add ingredient button-->
+                    <p class="ingredients-wrapper">
+                        <input name="ingredients[]" type="text" class = "form-control input text-input" placeholder = "Enter an ingredient"/>
+                    </p>
+                    
+                    <!--Add field button-->
+                    <p class = "right-float">
+                    <button class = "btn btn-default btn-md add-new page-2" id = "checknew" type = "button"><span style = "font-family:Pacifico">+</span></button>
+                    
+                    <!--Submit form button, which also sends to the third page-->
+                        <button class = "btn btn-default btn-md submit page-2" type="submit" value="Submit"><span style = "font-family:Pacifico">Submit</span></button>
+
+                    </p>      
+                    
+                </form>
+            </div>
+        </div>
+        
+        <!--Script thing for Skrollr-->        
+        <script type="text/javascript">
+            var s = skrollr.init(/*other stuff*/);
+
+            //The options (second parameter) are all optional. The values shown are the default values.
+            skrollr.menu.init(s, {
+                //skrollr will smoothly animate to the new position using `animateTo`.
+                animate: true,
+
+                //The easing function to use.
+                easing: 'sqrt',
+
+                //Multiply your data-[offset] values so they match those set in skrollr.init
+                scale: 2,
+
+                //How long the animation should take in ms.
+                duration: function(currentTop, targetTop) {
+                    //By default, the duration is hardcoded at 500ms.
+                    return 500;
+
+                    //But you could calculate a value based on the current scroll position (`currentTop`) and the target scroll position (`targetTop`).
+                    //return Math.abs(currentTop - targetTop) * 10;
+                },
+
+                //If you pass a handleLink function you'll disable `data-menu-top` and `data-menu-offset`.
+                //You are in control where skrollr will scroll to. You get the clicked link as a parameter and are expected to return a number.
+
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                function setHeight (){
+                    windowHeight = $(window).innerHeight();
+                    $('.container').css('height',windowHeight); 
+                };
+                setHeight();
+                $(window).resize(function (){
+                    setHeight();
+                });
+            });     
+        </script>
+        
+        <script type = "text/javascript" src="formshizzle.js"></script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+/* Page 1 */
+.page-1 {
+    margin-bottom: 2.5%;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #1abc9c;
+    font-size: 7vmin;
+}
+
+p {
+    text-align: center;
+    margin-top: 1.5%;
+}
+
+p.text {
+    font-family: 'Open Sans Condensed'; /*need to margin the sides so it's more centre-y*/
+    font-size: 4vmin;
+}
+
+.btn.page-1{
+    border-color: white;
+    background-color: #3498db;
+    color: white;
+}
+
+.btn.page-1:hover{
+    background-color: #3498db;
+    border-color: white;
+    color: white;
+}
+
+/* Page 2 */
+
+.page-2 {
+    background-color: #34495e;
+    color: white;
+}
+
+.text-input {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+
+p.right-float{
+    margin-top: 1%;
+    margin-right: 25%;
+    float: right;
+}
+
+.btn.add-new{
+    border-color: #e74c3c;
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn.add-new:hover{
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+.btn.submit{
+    border-color: #9b59b6;
+    background-color: #9b59b6;
+    color: white;
+}
+
+.btn.submit:hover{
+    background-color: #9b59b6;
+    border-color: #9b59b6;
+    color: white;
+}
